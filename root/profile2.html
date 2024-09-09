@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SAKADAB I lab</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+    <style>
+#section1, #section2, #section3, #section4 {
+  padding: 0;
+  margin: 0;
+}
+      html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+html, body {
+  background: whitesmoke no-repeat fixed;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.largeBox {
+    display: grid;
+    
+    grid-column: 1 / span 2;
+    margin-top: -330px ;
+  
+    grid-row: 1 / span 2;
+    height: 500px;
+    width: 720px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); 
+    
+    justify-content: center;
+    align-items: center;
+    box-shadow:  0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 5px rgba(255, 255, 255, 0.3);
+    animation: glowAnimation 10s infinite cubic-bezier(0.4, 0, 0.2, 1); /* 10s duration, infinite loop, cubic bezier easing */
+  }
+
+  .smallBoxContainer {
+
+    grid-row: 3 / span 2;
+    
+    grid-column: 1;
+    display: flex;
+    justify-content: flex-start; 
+    gap: 20px;
+    margin-left: 30px;
+    margin-top: -450px; 
+}
+.smallBox {
+  grid-column: 2;
+  grid-row: 2;
+  height: 365px;
+  width: 350px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 5px rgba(255, 255, 255, 0.3);
+  animation: glowAnimation 10s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+.boxcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+  overflow: hidden; /* Adjust the value as needed */
+}
+
+.smallBox img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  max-height: auto;
+  margin-bottom: 10px;
+  position: absolute; /* Add this line */
+  top: 50%; /* Adjust the value as needed */
+  left: 50%; /* Adjust the value as needed */
+  transform: translate(-50%, -10%); /* Add this line */
+} /* Adjust the value as needed */
+
+
+    
+    
+    .portraitBoxContainer {
+      grid-column: 3; 
+      grid-row: 1 / span 2;
+      	margin-top: 60px;
+      margin-right: 90%;
+    }
+    .portraitBox {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      height: 890px; 
+      width: 600px;
+    }
+    
+    .box {
+      flex-grow: 1;
+      border-radius: 10px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      height: 300px; /* Add this line */
+      overflow: hidden; /* Add this line */
+    }
+    .box:hover {
+      cursor: pointer;
+    }	
+    
+    .box-content {
+      position: absolute;
+      top: 0;
+      right: 100%; /* Change this line */
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      transition: right 0.3s ease-in-out;
+      opacity: 1;
+    }
+    
+    .box.active .box-content {
+      right: 0; /* Change this line */
+    }
+.box-content p {
+  color: rgb(0, 0, 0);
+  font-family: Rethink Sans;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 1.5em;
+}
+
+.box-content1 {
+  padding-top: 0.3em;
+}
+.box-content2 {
+  padding-top: 4.5em;
+}
+.box-content3 {
+
+}
+
+
+
+
+    
+.boxheader {
+  font-size: 70px;
+  font-family: Rethink Sans;
+  mix-blend-mode: overlay;
+  -webkit-text-stroke: 2px white; /* width and color of the border */
+  color: rgba(255, 255, 255, 0.3);
+  align-self: flex-start;
+  padding-bottom: -20px;
+  padding-left: 40px;
+  transition: transform 0.3s ease-in-out; /* Add this line */
+  transform: translateX(0); /* Add this line */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.box.active .boxheader {
+  transform: translateX(180%); /* Add this line */
+}
+
+    
+    
+
+
+    .box:nth-child(1){
+      background: linear-gradient(45deg, #3122ff 0%, #1b57ff 30%, #5d06ff 80%);
+    }
+
+    .box:nth-child(2){
+      background: linear-gradient(45deg, #ff2222 0%, #ff891b 30%, #ffee06 80%);
+
+    }
+    .box:nth-child(3){
+      background: linear-gradient(45deg, #9ed65d 0%, #3cbe5d 30%, #638a4d 80%);
+
+    }
+  
+    .Buttoncontainer {
+      position: relative;
+      height: 100vh; 
+      
+    }
+    .row {
+      position: absolute;
+      top: 28%; 
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 150vh;
+      padding-left: 10%;
+      justify-content: center; 
+      align-items: center;
+      align-self: flex-start; 
+     
+    }
+    
+    .wrapper {
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 90px;
+      width: 90px;
+      margin: 5px;
+      transform: translate(-50%, 50%); 
+    }
+    
+    .button1, .button2, .button3, .button4 {
+      position: relative;
+      overflow: hidden;
+      height: 72%;
+      width: 72%;
+      border-radius: 50%;
+      transition: 0.5s ease;
+      background-color: rgba(255, 255, 255, 0.3); 
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 3px solid white;
+      background-size: cover; 
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    
+    .button1 {
+      background-image: url('Images/Icon\ 1.png');
+    }
+    
+    .button2 {
+      background-image: url('Images/Icon\ 2.png'); 
+    }
+    
+    .button3 {
+      background-image: url('Images/Icon\ 3.png'); 
+    }
+    
+    .button4 {
+      
+      background-image: url('Images/Icon\ 4.png'); 
+    }
+    
+    .button1:hover, .button2:hover, .button3:hover, .button4:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+    .button1:hover::before, .button2:hover::before, .button3:hover::before, .button4:hover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.25);
+      transform: skewX(-25deg);
+      transition: 0.7s;
+      z-index: 1;
+      animation: shine 2s infinite;
+    }
+    
+    @keyframes shine {
+      0% {left: -75%;}
+      50% {left: 25%;}
+      100% {left: 125%;}
+    } 
+.section5 {
+  text-align: center;
+    align-content: center;
+    align-items: center;
+    font-size: 70px;
+    padding-top: 5%;
+    color: white;
+}
+        svg {
+            z-index: 2;
+        }
+
+        .gridImgContainer {
+            max-width: 100%;
+            max-height: 100%;
+            padding-left: 22px;
+        }
+
+        .smallgridImgContainer {
+            max-width: 250px;
+            max-height: 300px;
+        }
+
+        .gridTextContainer {
+            margin-top: 210px;
+            /* Adjust to your desired spacing for clip art */
+            text-align: center;
+            padding: 10px 40px
+        }
+        .button-link {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+    .svg-container {
+      margin-top: 0px;
+    }
+    .footerU {
+      margin-top: 500px;
+    }
+.black {
+  color: black;
+}
+
+.largequote3 {
+  padding-top: 10%;
+  font-weight: 300;
+  font-size: 200px;
+  text-align: center;
+  line-height: 1.2;
+  background: linear-gradient(to right, rgb(252, 78, 78), rgb(255, 194, 82)); /* replace with your gradient colors */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.next-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+}
+.next-sectionB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust as needed */ /* Add this line */
+}
+
+
+.content img {
+  width: 30%; /* Adjust as needed */
+  height: auto;
+}
+
+.content p {
+  width: 80%;
+  margin-left: 15%;
+  font-family: Rethink Sans;
+  font-weight: 400;
+  text-align: left;
+  padding-left: 10px;
+  border-left: 1px solid black; /* Adjust as needed */
+}
+.contentB img {
+  width: 30%;
+  height: auto;
+}
+.contentB {
+  display: flex;
+  align-items: center;
+  gap: 0px; /* Adjust as needed */ /* Add this line */
+  flex-direction: row-reverse;
+}
+.contentB p {
+  font-family: Rethink Sans;
+  font-weight: 400;
+  width: 80%;
+  text-align: right;
+  padding-right: 10px;
+  border-right: 1px solid black; /* Adjust as needed */
+}
+.content, .contentB h2 {
+  font-family: Rethink Sans;
+  font-weight: 600;
+  font-size: 30px;
+
+}
+.text-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%; /* Adjust as needed */
+}
+.content .text-content h2 {
+  text-align: left;
+  margin-left: 16%;
+  margin-bottom: -15px;
+}
+
+.contentB .text-content h2 {
+  text-align: right;
+  margin-right: 21%;
+  margin-bottom: -15px;
+}
+.content, .contentB {
+  max-width: 80%; /* Adjust as needed */
+  height: auto;
+}
+.content p, .contentB p {
+  width: 80%;
+  max-width: 900px; /* Adjust as needed */
+}
+.fullscreen-bg {
+    position: relative;
+    width: 100vw;
+    height: 400vh;
+}
+
+.parallax-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parallax-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: brightness(0.5);
+    z-index: 1;
+}
+
+#section1::before {
+    background-image: url('Images/Durian.jpg');
+}
+
+#section2::before {
+    background-image: url('Images/DSC03921.JPG');
+}
+
+#section3::before {
+    background-image: url('Images/davao\ downtown.jpg');
+}
+
+.text-container {
+    z-index: 2;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.section-header, .section-text {
+    position: relative;
+}
+.section-header {
+  font-size: 70px;
+  font-family: Rethink Sans;
+  mix-blend-mode: luminosity;
+  font-weight: 600;
+  -webkit-text-stroke: 2px white;
+  color: rgba(255, 255, 255, 0.1);
+
+}
+.section-text {
+  font-size: 30px;
+  width: 50%;
+  font-family: Rethink Sans;
+  font-weight: 400;
+  margin-top: -20px;
+}
+.boxcontainer2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -500px;
+  margin-bottom: 250px;
+  overflow: hidden; /* Adjust the value as needed */
+}
+.BoxA, .BoxB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 2em 2em;
+  transition: all 0.5s ease-in-out;
+}
+.BoxA:hover, .BoxB:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.BoxA h2 {
+  font-family: Rethink Sans;
+  font-weight: 600;
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  line-height: 0.8;
+  margin-top: 170px;
+}
+.BoxB h2 {
+  font-family: Rethink Sans;
+  font-weight: 600;
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  line-height: 0.8;
+  margin-top: 170px;
+}
+.BoxA, .BoxB li{
+  font-family: Rethink Sans;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+
+
+.BoxA {
+  background: linear-gradient(60deg, #a9ceff 0%, #97b3ff 30%, #cbafff 80%);
+}
+
+.BoxB {
+  background: linear-gradient(120deg, #ff9d9d 0%, #ffcf9d 30%, #fff59d 80%);
+}
+.BoxA, .BoxB {
+  perspective: 1000px;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+#meetthedesigner {
+  padding-top: 15%;
+  background: rgb(255, 81, 81);
+  height: 160vh;
+  z-index: 1;
+}
+#svgwave {
+  transform: translate(0px, 400px);
+  z-index: 2;
+}
+.footerU {
+  margin-top: 110px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo2">
+            <a href="index.html">
+                <img src="Images/Sakadab Light Mode.png" alt="Light Mode Logo" id="lightModeLogo" />
+            </a>
+        </div>
+        <ul class="nav__links">
+            <li><a href="profile2.html">Profile</a></li>
+            <li><a href="Filipino.html">Kwento</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="SIP2.html">SIP</a></li>
+        </ul>
+    </nav>
+    <div id="page-progress"></div>
+    <div class="wrappersidebar">
+			<input type="checkbox" id="btn" hidden>
+			<label for="btn" class="menu-btn">
+			<i class="fas fa-bars"></i>
+			<i class="fas fa-times"></i>
+			</label>
+      <nav id="sidebar">
+        <div class="title">
+           Bibliography
+        </div>
+        <ul class="list-items">
+         <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+         <li><a href="https://docs.google.com/document/d/1DrbW_au2MP6xZJno9PG6yvpa8tI-759iRz51tSKsKlw/edit?usp=drivesdk"><i class="fas fa-sliders-h"></i>SAKADAB DATA</a></li>
+         <li><a href="https://knowledge4policy.ec.europa.eu/dataset/beofao-fao-burningcropresidues_en"><i class="fas fa-sliders-h"></i>Effect of Burning Crops</a></li>
+         <li><a href="https://www.uclahealth.org/news/ask-the-doctors-is-water-with-a-high-ph-safe-to-drink#:~:text=The%20danger%20of%20more%20acidic,obviously%20poses%20a%20health%20risk."><i class="fas fa-sliders-h"></i>Ask the Doctors - Is water with a high pH safe to drink?</a></li>
+         <li><a href="https://www.eldoradosprings.com/blog/what-causes-water-impurity"><i class="fas fa-sliders-h"></i>What causes water impurity? by Eldorado Marketing</a></li>
+         <li><a href="https://www.worldwildlife.org/stories/fight-climate-change-by-preventing-food-waste"><i class="fas fa-sliders-h"></i>Fight climate change by preventing food waste by WWF</a></li>
+         <li><a href="https://bio.libretexts.org/Learning_Objects/Laboratory_Experiments/Microbiology_Labs/Book%3A_General_Microbiology_Lab_Manual_(Pakpour_and_Horgan)/Lab_08%3A_Membrane_Filtration"><i class="fas fa-sliders-h"></i>Lab 8: Membrane filtration. Biology LibreTexts.</a></li>
+         <li><a href="https://generalcarbon.com/facts-about-activated-carbon/activated-carbon-faq/#:~:text=Activated%20carbon%20is%20made%20by,from%20600%2D1200%20degrees%20Celsius"><i class="fas fa-sliders-h"></i>General Carbon Corporation</a></li>
+         <li><a href="https://news.abs-cbn.com/life/03/20/23/rice-vegetables-meat-are-most-wasted-food-in-ph-dost#:~:text=MANILA%20%E2%80%94%20Rice%2C%20vegetables%2C%20and,said%20in%20a%20recent%20study."><i class="fas fa-sliders-h"></i>Rice, vegetables, meat are most wasted food in PH: DOST. ABS-CBN News.</a></li>
+         <li><a href="https://www.phxwater.co.uk/private-water-supply-ph-testing/#:~:text=Fill%20a%20clean%20container%20with,tests%20strips%20are%20widely%20available"><i class="fas fa-sliders-h"></i>How to Test your Private Water Supply's pH Balance. PHX WATER. </a></li>
+         <li><a href="https://www.nhsinform.scot/illnesses-and-conditions/infections-and-poisoning/escherichia-coli-e-coli-o157/#:~:text=A%20small%20number%20of%20people,children%20aged%20under%205%20years."><i class="fas fa-sliders-h"></i>Escherichia coli (E. coli) O157 | NHS inform</a></li>
+         <li><a href="https://homesteadsurvivalsite.com/make-activated-charcoal/ "><i class="fas fa-sliders-h"></i>How to make activated charcoal (With pictures). Homestead Survival Site.</a></li>
+         <li><a href="https://atlas-scientific.com/blog/why-is-turbidity-important/"><i class="fas fa-sliders-h"></i>Why is turbidity important? A | Atlas Scientific</a></li>
+         <li><a href="https://atlas-scientific.com/blog/why-is-turbidity-important/ "><i class="fas fa-sliders-h"></i>Why is turbidity important? B | Atlas Scientific</a></li>
+         <li><a href="https://www.watereducation.org/aquapedia-background/potable-water#:~"><i class="fas fa-sliders-h"></i>:~:text=Potable%20water%2C%20also%20known%20as,chemicals%2C%20viruses%20and%20fecal%20matter"><i class="fas fa-sliders-h"></i>Potable Water - Water Education Foundation</a></li>
+         <li><a href="https://doi.org/10.5772/intechopen.108349"><i class="fas fa-sliders-h"></i>Role of activated carbon in water treatment. In IntechOpen eBooks.</a></li>
+         <li><a href="https://doi.org/10.1016/b978-0-323-90763-7.00012-3"><i class="fas fa-sliders-h"></i>Applications and limitations of graphene oxide for remediating contaminants of emerging concern in wastewater by Separation Science and Technology</a></li>
+         <li><a href="https://doi.org/10.1016/b978-0-08-093250-7.00048-7 "><i class="fas fa-sliders-h"></i>Electromembrane Processes: basic aspects and applications</a></li>
+         <li><a href="https://www.who.int/news-room/fact-sheets/detail/drinking-water#:~:text=Contaminated%20water%20and%20poor%20sanitation,individuals%20to%20preventable%20health%20risks"><i class="fas fa-sliders-h"></i>Drinking Water by WHO</a></li>
+        </ul>
+     </nav>
+		 </div>
+    <div class = "profile-header">
+      <h1 align = "center" class = "largequote3">Profile.</h1>
+    </div>
+    <div class="next-section">
+      <div class="content">
+        <img src="Images/DSC03995.JPG" alt="Your Image" data-speed = "0.2">
+        <div class="divider"></div>
+        <div class="text-content">
+          <h2>Needs</h2>
+          <p>The SAKADAB institution is struggling with the lack of awareness of their institution and their businesses.
+            This is due to the lack of skills and knowledge in mediums such as social media and has led to other issues 
+            such as inconsistent income flow.</p>
+        </div>
+      </div>
+    </div>
+    <div class = "next-sectionB">
+      <div class="contentB">
+        <img src="Images/DSC04007.JPG" alt="Your Image" data-speed = "0.2">
+        <div class="text-content">
+          <h2>Project Proposal</h2>
+          <p>Using our available resources, we have come up with a two-phase project proposal to help them acquire the needed
+            skills and platforms to advertise their institution and business in form of websites, 
+            social media posts, and online campaigns.</p>
+        </div>
+      </div>
+    </div>
+    <div class="containerX">
+      <div class="largeBox">
+        <div class="gridImgContainer">
+          <img src="Images/collage.png" alt="Image description" style="width: 100%; height: auto; object-fit: cover;">
+    
+        </div>
+      </div>
+    
+      <div class="smallBoxContainer">
+        <div class="smallBox">
+          <h1 class="gridheader">Labor</h1>
+            <p class="gridtext"> Group Member's skills that are manifested through our aptitudes in photography, 
+            instruments, graphic design and coding.</p>
+            <div class = "boxcontainer">
+            <img src="Images/Labor ClipArt.png" />
+          </div>
+          </div>
+      
+          
+        <div class="smallBox">
+          <h1 class="gridheader">Capital</h1>
+            <p class="gridtext"> 
+              We own devices and equipment that are <br>
+              • Manifested through our DSLR camera, Electric Guitar, PC's, Tablets, and more. <br>
+              • Software
+            </p>
+            <div class = "boxcontainer">
+              <img src="Images/Capital ClipArt.png" />
+            </div>
+        </div>
+      </div>
+      <div class="portraitBoxContainer">
+        <div class="portraitBox">
+          <div class="box">
+            <h1 class="boxheader">Objectives</h1>
+            <div class="box-content">
+              <p class = "box-content1">•To inspire, help and train other people with the same limitations as them <br>
+                •To show people that despite their disabilities, they are just as capable and talented as any other able-bodied person. <br>
+                •Are able to live and sustain themselves without help.<br>
+                •Aim to support each other as well as others with the same situation as them.<br>
+                •Enhance their community in all aspects.
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <h1 class="boxheader" style="font-size: 50px; line-height: 1;">Factors for Creation</h1>
+            <div class="box-content">
+              <p class = "box-content2">
+                •Lack of freedom to do anything independently. <br>
+                •Lack of accessibility
+
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <h1 class="boxheader">Advocacy</h1>
+            <div class="box-content">
+              <p class = "box-content3">
+                •They implement public fundraisers like concerts for the public to watch. <br>
+                •They also have a Facebook page where visitors can learn and reach them. <br>
+                •Every person must share equal contribution in their community. <br>
+                •They each have a job or role to do to support their institution. 
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="wrapper">
+          <div class="button1" onclick="changeImage(this,'Images/photo.jpg')">
+            <a href="#" class="button-link"></a>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="button2" onclick="changeImage(this,'Images/Coding.jpg')">
+            <a href="#" class="button-link"></a>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="button3" onclick="changeImage(this,'Images/design.jpg')">
+            <a href="#" class="button-link"></a>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="button4" onclick="changeImage(this,'Images/music.jpg')">
+            <a href="#" class="button-link"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  <br>
+  <br>
+  <div class="fullscreen-bg">
+    <div class="parallax-section" id="section1">
+        <div class="text-container">
+            <h1 class="section-header" id = "section-header1">Impact</h1>
+            <p class="section-text">As an online campaign, it has a very low cost and resource
+              need other than the Wi-Fi or Mobile data needed to post the
+              advertisements and the time and effort needed to learn the
+              skills.</p>
+        </div>
+    </div>
+    <div class="parallax-section" id="section2">
+        <div class="text-container">
+            <h1 class="section-header">Potential</h1>
+            <p class="section-text">Through this Project Proposal, it can help bring more traction to
+              their business and bringing a wider pool of customers and
+              making the institution more well-known in general. This will make
+              their income flow more stable and reliable, helping solve their
+              issue of money scarcity.</p>
+        </div>
+    </div>
+    <div class="parallax-section" id="section3">
+        <div class="text-container">
+            <h1 class="section-header">Sustainability</h1>
+            <p class="section-text">It is sustainable because what we offer is not something fully tangible and material but a 
+              skill that can stay and grow with them even long after we leave the institution. By giving them designs and 
+              templates we give them examples of how to make a good advertisement and if ever they are confused, they can 
+              refer to our tutorial videos to refresh their memories.
+<br>
+              To ensure sustainability however, we will also be teaching them the sources of the information and good learning material on how they can further their skills on their own.</p>
+        </div>
+    </div>
+</div>
+<section>
+  <div class="boxcontainer2">
+    <div id="box1" class="BoxA">
+      <div class="front">
+        <h2>Goods Offered</h2>
+      </div>
+      <div class="back">
+        <ul>
+          <li>Layouts and designs for social media posters and advertisements</li>
+          <li>A website that the institution can customize</li> 
+        </ul>
+      </div>
+    </div>
+    <div id="box2" class="BoxB">
+      <div class="front">
+        <h2>Services Offered</h2>
+      </div>
+      <div class="back">
+        <ul>
+          <li>Tutorial sessions in formats like Google Meet, Zoom, or tutorial videos</li>
+          <li>Training on how to use digital applications and social media like Canva, Facebook, and Instagram</li>
+          <li>Skills development for maintaining their own accounts and website, such as coding, graphic design, photography, and music</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div id = "svgwave">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f5f5f5" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,112C384,128,480,192,576,213.3C672,235,768,213,864,186.7C960,160,1056,128,1152,122.7C1248,117,1344,139,1392,149.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+</div>
+  <section id = "meetthedesigner">
+  <h2 class = "section5"> Meet the Designer. </h2>
+  <div id="card">
+	<h1>Gillian Carnicer</h1>
+	<div class="image-crop">
+		<img id="avatar" src="Images/Gill.jpg" alt="User Avatar"> </img>
+		
+	</div>
+	<p id="username">@fwammi</p>
+	
+	<div id="bio">
+			<p>This is Gillian, a cosplayer in ADDU, a student in 9-Xavier. They are also a member of the RBC. <br>
+			  They also play Genshin Impact. They are also studious about their academics. Their mom is a teacher.
+	</div>
+	<div id="stats">
+		<div class="col">
+			<p class="stat">3</p>
+			<p class="label">Siblings</p>
+		</div>
+		<div class="col">
+			<p class="stat">50</p>
+			<p class="label">goals</p>
+		</div>
+	</div>
+	<div id="buttons">
+		<a href="https://www.instagram.com/fwammi/" target="_blank">
+			<button id = "follow">Follow</button>
+		</a>
+	<a href="#">
+		<button id="msg">Message</button>
+	</a>
+		</div>
+	</div>
+
+</section>
+<button class="scrollToTopBtn">
+  <img src="Images/arrowhead.png">
+</button>
+<div class="footerU">
+    
+	<div id = "svgfooter">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#322222" fill-opacity="1" d="M0,192L48,208C96,224,192,256,288,256C384,256,480,224,576,202.7C672,181,768,171,864,192C960,213,1056,267,1152,282.7C1248,299,1344,277,1392,266.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+	</div>
+	<footer class="footer3">
+		<div class="footercon1">
+			<div class="logo-containerfooter">
+				<img src="Images/SAKADAB Dark Mode.png">
+				<h1 class="footerlogo">SAKADAB</h1>
+			</div>
+			<p class="footertext">A tight-knit and inclusive PWD institution trying to achieve <br> independence and sustainability through interdependence <br>
+				with one another and grassroots entrepreneurship.</p>
+			<a href="mailto:sakadab@gmail.com">
+				<button class="sendbutton">Message</button>
+			</a>
+			<p class = "footertext footertext2">SAKADAB &copy; 2023</p>
+		</div>
+		<div class="footercon2">
+			<h2 class = "footerelements">MEMBERS</h2>
+			<p class = "footermembers">Gillian Carnicer</p>
+			<p class = "footermembers">Yuel Gatus</p>
+			<p class = "footermembers">Hailey Mantar</p>
+			<p class = "footermembers">Eunice Lacuna</p>
+			<p class = "footermembers">Jonie Samalca</p>
+
+		</div>
+		<div class="footercon3">
+			<h2 class = "footerelements">FOLLOW</h2>
+			<div class="icons">
+				<a href="https://www.facebook.com/sakadab.samahan"><i class="fab fa-facebook facebook"></i></a>
+				<a href="https://www.instagram.com/xav.ur.bashers/"><i class="fab fa-instagram instagram"></i></a>
+			</div>
+		</div>
+	</footer>
+</div>
+
+
+      
+
+
+  
+      
+    
+  
+  <script src = "anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script> 
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Observer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Draggable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EaselPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/TextPlugin.min.js"></script>
+  
+  
+  
+  <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/CustomEase.min.js"></script>
+  <script src = "script.js"></script>
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.registerPlugin(ScrollTrigger);
+      function changeImage(element, imagePath) {
+        var buttonLink = element.querySelector('.button-link');
+        buttonLink.href = imagePath;
+      }
+                            const lenis = new Lenis()
+
+                            lenis.on('scroll', ScrollTrigger.update)
+
+                            gsap.ticker.add((time)=>{
+                              lenis.raf(time * 1000)
+                            })
+
+                            gsap.ticker.lagSmoothing(0)
+
+
+                            gsap.timeline({
+                              scrollTrigger: {
+                                trigger: ".profile-header",
+                                start: "top top",
+                                end: "bottom top",
+                                scrub: 1,
+                              },
+                            })
+                            .fromTo(".profile-header", {
+                              scale: 1,
+                              opacity: 1,
+                            }, {
+                              scale: 0.5,
+                              opacity: 0,
+                              duration: 2,
+                              ease: "power1.out",
+                            })
+                            .from(".next-section", {
+                              y: "100%",
+                              duration: 2,
+                              ease: "power1.out",
+                            });
+                            window.addEventListener('scroll', function() {
+                            const parallaxImages = document.querySelectorAll('[data-speed]');
+                            parallaxImages.forEach(function(image) {
+                              const speed = parseFloat(image.dataset.speed);
+                              const offset = window.pageYOffset * speed;
+                              image.style.transform = 'translateY(-' + offset + 'px)';
+                            });
+                          });
+
+                          // Select all boxes
+                          const boxes = document.querySelectorAll('.box');
+
+                          // Add click event listener to each box
+                          boxes.forEach(box => {
+                            box.addEventListener('click', () => {
+                              // Check if the box is active
+                              if (box.classList.contains('active')) {
+                                // If the box is active, animate the box content to retract
+                                gsap.to(box, {
+                                  '--right': '100%',
+                                  duration: 0.5,
+                                  ease: 'power1.out'
+                                });
+
+                                // Remove the active class
+                                box.classList.remove('active');
+                              } else {
+                                // If the box is not active, animate the box content to slide in
+                                gsap.to(box, {
+                                  '--right': '0%',
+                                  duration: 0.5,
+                                  ease: 'power1.in',
+                                  onStart: function() {
+                                    // Add the active class before the animation starts
+                                    box.classList.add('active');
+                                  }
+                                });
+                              }
+                            });
+                          });
+
+
+                          const container = document.querySelector('.parallax-container');
+                          let containerScrollPosition = 0;
+
+                          window.addEventListener('wheel', function(e) {
+                              containerScrollPosition += e.deltaY;
+                              container.scrollTo(0, containerScrollPosition);
+                          });
+                          gsap.utils.toArray('.parallax-section').forEach((section, index) => {
+                            gsap.fromTo(section.querySelectorAll('.section-header, .section-text'), {
+                              autoAlpha: 0,
+                              y: 50
+                            }, {
+                              autoAlpha: 1,
+                              y: 0,
+                              stagger: 0.2, // 0.2 seconds between each element
+                              scrollTrigger: {
+                                trigger: section,
+                                start: 'top 75%',
+                                end: 'bottom 25%',
+                                scrub: true
+                              }
+                            });
+                          });
+                          const boxesA = document.querySelectorAll('.BoxA, .BoxB');
+
+                          boxesA.forEach(box => {
+                            const front = box.querySelector('.front');
+                            const back = box.querySelector('.back');
+
+                            box.addEventListener('click', () => {
+                              if (box.classList.contains('flipped')) {
+                                gsap.to(front, {
+                                  rotationY: 0,
+                                  duration: 1
+                                });
+
+                                gsap.to(back, {
+                                  rotationY: 180,
+                                  duration: 1
+                                });
+
+                                box.classList.remove('flipped');
+                              } else {
+                                gsap.to(front, {
+                                  rotationY: 180,
+                                  duration: 1
+                                });
+
+                                gsap.to(back, {
+                                  rotationY: 0,
+                                  duration: 1
+                                });
+
+                                box.classList.add('flipped');
+                              }
+                            });
+                          });
+                          gsap.from(".BoxA, .BoxB", {
+                          scrollTrigger: {
+                            trigger: ".BoxA, .BoxB",
+                            start: "top 75%", // when the top of the trigger is 75% from the top of the viewport
+                            endTrigger: ".BoxA, .BoxB",
+                            end: "bottom bottom", // when the bottom of the trigger hits the bottom of the viewport
+                            scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                          },
+                          opacity: 0,
+                        });
+
+                        gsap.from(".section5", {
+                          scrollTrigger: {
+                            trigger: ".section5",
+                            start: "top 75%", // when the top of the trigger is 75% from the top of the viewport
+                            end: "bottom top", // when the bottom of the trigger hits the top of the viewport
+                            scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                          },
+                          opacity: 0,
+                        });
+                        // Slide-right animation for #card
+                        gsap.from("#card", {
+                          scrollTrigger: {
+                            trigger: "#card",
+                            start: "top 80%", // when the top of the trigger is 75% from the top of the viewport
+                            end: "30% top", // when the bottom of the trigger hits the top of the viewport
+                            scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                          },
+                          x: "-100%", // start from 100% to the left
+                        });
+                            var scrollToTopBtn = document.querySelector(".scrollToTopBtn")
+                            var rootElement = document.documentElement
+                            function handleScroll() {
+                                // Calculate the scroll percentage (scrollAmount / totalHeight)
+                                var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+                                var scrollPercentage = rootElement.scrollTop / scrollTotal;
+                                console.log('Scroll percentage:', scrollPercentage);
+
+                                if (scrollPercentage > 0.25) {
+                                    // If scroll percentage is above threshold (0.25), show the button
+                                    scrollToTopBtn.classList.add("showBtn");
+                                    console.log('showBtn class added');
+                                } else {
+                                    // If scroll percentage is less than threshold (0.25), hide the button
+                                    scrollToTopBtn.classList.remove("showBtn");
+                                    console.log('showBtn class removed');
+                                }
+                            }
+
+                            function scrollToTop() {
+                                // Scroll to top smooth behavior
+                                rootElement.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth"
+                                });
+                            }
+
+                            // Attach scroll event to the button
+                            scrollToTopBtn.addEventListener("click", scrollToTop);
+
+                            // Listen for scroll events in the document
+                            document.addEventListener("scroll", handleScroll);
+
+</script>
+</body>
+
+</html>
+
+
+         

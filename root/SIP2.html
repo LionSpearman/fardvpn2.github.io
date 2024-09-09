@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SIP.</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+	    <link href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+	<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100vh;
+	background: whitesmoke;
+	}
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.header {
+  margin-top: -32%;
+  font-family: Outfit;
+  font-size: 200px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.2;
+  background: linear-gradient(to right, rgb(252, 78, 78), rgb(255, 194, 82)); /* replace with your gradient colors */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+.textcontainer3 {
+  margin-top: 35%;
+}
+.textandimgcolumn {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center; /* Adjust this value */
+  align-items: center;
+  margin-top: 10%;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  gap: 10%;
+}
+.textandimgcolumn .parallaxcontainer img  {
+  width: 40%;
+  height: 40%;
+  margin-right: 50%; /* Add this line */
+}
+
+p.summary{
+  font-size: 20px;
+  font-family: Rethink Sans;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.2;
+  justify-content: left;
+  width: 140%; 
+  margin-left: 20%; /* Add this line */
+}
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.cd-container::after {
+  /* clearfix */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#cd-timeline {
+  position: relative;
+  padding: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+#cd-timeline::before {
+  /* this is the vertical line */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #d7e4ed;
+}
+@media only screen and (min-width: 1170px) {
+  #cd-timeline {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  #cd-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
+}
+
+.cd-timeline-block {
+  position: relative;
+  margin: 2em 0;
+}
+.cd-timeline-block::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-timeline-block:first-child {
+  margin-top: 0;
+}
+.cd-timeline-block:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-block {
+    margin: 4em 0;
+  }
+  .cd-timeline-block:first-child {
+    margin-top: 0;
+  }
+  .cd-timeline-block:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cd-timeline-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+.cd-timeline-img img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+.cd-timeline-img.cd-picture {
+  background: #75ce66;
+}
+.cd-timeline-img.cd-movie {
+  background: #c03b44;
+}
+.cd-timeline-img.cd-location {
+  background: #f0ca45;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-img {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+  .cssanimations .cd-timeline-img.is-hidden {
+    visibility: hidden;
+  }
+  .cssanimations .cd-timeline-img.bounce-in {
+    visibility: visible;
+    -webkit-animation: cd-bounce-1 0.6s;
+    -moz-animation: cd-bounce-1 0.6s;
+    animation: cd-bounce-1 0.6s;
+  }
+}
+
+@-webkit-keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+@-moz-keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    -moz-transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    -moz-transform: scale(1.2);
+  }
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+@keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.cd-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  background: #ffffff;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 3px 0 #d7e4ed;
+}
+.cd-timeline-content::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-timeline-content h2 {
+  color: #303e49;
+}
+.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  display: inline-block;
+}
+.cd-timeline-content p {
+  margin: 1em 0;
+  line-height: 1.6;
+}
+.cd-timeline-content .cd-read-more {
+  float: right;
+  padding: 0.8em 1em;
+  background: #acb7c0;
+  color: #ffffff;
+  border-radius: 0.25em;
+}
+.no-touch .cd-timeline-content .cd-read-more:hover {
+  background-color: #bac4cb;
+}
+.cd-timeline-content .cd-date {
+  float: left;
+  padding: 0.8em 0;
+  opacity: 0.7;
+}
+.cd-timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-right: 7px solid #ffffff;
+}
+@media only screen and (min-width: 768px) {
+  .cd-timeline-content h2 {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  .cd-timeline-content p {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-content {
+    margin-left: 0;
+    padding: 1.6em;
+    width: 45%;
+  }
+  .cd-timeline-content::before {
+    top: 24px;
+    left: 100%;
+    border-color: transparent;
+    border-left-color: #ffffff;
+  }
+  .cd-timeline-content .cd-read-more {
+    float: left;
+  }
+  .cd-timeline-content .cd-date {
+    position: absolute;
+    width: 100%;
+    left: 122%;
+    top: 6px;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+    top: 24px;
+    left: auto;
+    right: 100%;
+    border-color: transparent;
+    border-right-color: #ffffff;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+    left: auto;
+    right: 122%;
+    text-align: right;
+  }
+  .cd-timeline-content.is-hidden {
+  visibility: hidden;
+}
+.cd-timeline-content.bounce-in {
+  visibility: visible;
+  -webkit-animation: cd-bounce-2 0.6s;
+  -moz-animation: cd-bounce-2 0.6s;
+  animation: cd-bounce-2 0.6s;
+}
+}
+
+@media only screen and (min-width: 1170px) {
+  /* inverse bounce effect on even content blocks */
+  .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+    -webkit-animation: cd-bounce-2-inverse 0.6s;
+    -moz-animation: cd-bounce-2-inverse 0.6s;
+    animation: cd-bounce-2-inverse 0.6s;
+  }
+}
+@-webkit-keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100px);
+  }
+  60% {
+    opacity: 1;
+    -moz-transform: translateX(20px);
+  }
+  100% {
+    -moz-transform: translateX(0);
+  }
+}
+@keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    -o-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(100px);
+  }
+  60% {
+    opacity: 1;
+    -moz-transform: translateX(-20px);
+  }
+  100% {
+    -moz-transform: translateX(0);
+  }
+}
+@keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+    -moz-transform: translateX(100px);
+    -ms-transform: translateX(100px);
+    -o-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    -o-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+  .chart {
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: auto;
+    gap: 20px;
+  }
+  .chart-plan {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.3); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  margin: 15px 8px;
+  padding: 20px;
+  border-radius: 6px;
+  color: #fff;
+  transition: all 1s ease-in-out;
+}
+
+.chart-plan.hover {
+  animation: gradient-1 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.chart-plan-2.hover {
+  animation: gradient-2 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.chart-plan-3.hover {
+  animation: gradient-3 5s ease infinite;
+  background-size: 200% 200%;
+}
+  @keyframes gradient-1 {
+  0% {background: rgb(255, 84, 84);}
+  50% {background: rgb(255, 129, 80);}
+  100% {background: rgb(255, 229, 114);}
+}
+
+@keyframes gradient-2 {
+  0% {background: rgb(161, 186, 255);}
+  50% {background: rgb(105, 165, 255);}
+  100% {background: rgb(67, 95, 255);}
+}
+
+@keyframes gradient-3 {
+  0% {background: rgb(141, 255, 188);}
+  50% {background: rgb(119, 224, 154);}
+  100% {background: rgb(103, 187, 110);}
+}
+  .chart-plan h2 {
+    color: black;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(241, 88, 88);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .chart-plan p {
+    margin-top: 0;
+    color: black;
+  }
+  .chart-plan p span {
+    font-size: 33px;
+  }
+  .chart-plan ul {
+    margin: 0 0 35px;
+    padding-left: 16px;
+    list-style: none;
+    line-height: 1.8;
+    color: #b5b5b5;
+  }
+  .chart-plan ul li::before {
+    content: "•";
+    color: #ff81a9;
+    display: inline-block;
+    width: 20px;
+    margin-left: -15px;
+    position: relative;
+    top: 4px;
+    font-size: 26px;
+    line-height: 0;
+  }
+  .chart-plan a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    background: rgba(245, 68, 68, 0.6);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .chart-plan a:hover {
+    background-color: #2c1f1f;
+  }
+  
+  @media (max-width: 768px) {
+    .chart {
+      display: block;
+    }
+  }
+  .subtitle5 {
+    margin-bottom: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  .subtitle6 {
+    font-size: 200%;
+  }
+  .subtitle7 {
+    font-size: 800%;
+  }
+  
+  #overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgb(255, 74, 74);
+  z-index: 10;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+#abstract {
+  padding-top: 5%;
+  height: 100vh;
+  width: 99vw;
+  overflow: hidden;
+}
+.subtitle-container {
+  overflow: hidden;
+}
+#Eunice {
+  padding-top: 2%;
+  height: 120vh;
+  width: 99vw;
+}
+.whitetext {
+  color: rgb(255, 87, 87);
+  margin-top: -20px;
+}
+.footerU {
+  margin-top: 6%;
+}
+
+</style>
+<body>
+  <nav class="navbar">
+    <div class="logo2">
+        <a href="index.html">
+            <img src="Images/Sakadab Light Mode.png" alt="Light Mode Logo" id="lightModeLogo" />
+        </a>
+    </div>
+    <ul class="nav__links">
+        <li><a href="profile2.html">Profile</a></li>
+        <li><a href="Filipino.html">Kwento</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="SIP2.html">SIP</a></li>
+    </ul>
+</nav>
+<div id="page-progress"></div>
+<div class="wrappersidebar">
+  <input type="checkbox" id="btn" hidden>
+  <label for="btn" class="menu-btn">
+  <i class="fas fa-bars"></i>
+  <i class="fas fa-times"></i>
+  </label>
+  <nav id="sidebar">
+    <div class="title">
+       Bibliography
+    </div>
+    <ul class="list-items">
+     <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+     <li><a href="https://docs.google.com/document/d/1DrbW_au2MP6xZJno9PG6yvpa8tI-759iRz51tSKsKlw/edit?usp=drivesdk"><i class="fas fa-sliders-h"></i>SAKADAB DATA</a></li>
+     <li><a href="https://knowledge4policy.ec.europa.eu/dataset/beofao-fao-burningcropresidues_en"><i class="fas fa-sliders-h"></i>Effect of Burning Crops</a></li>
+     <li><a href="https://www.uclahealth.org/news/ask-the-doctors-is-water-with-a-high-ph-safe-to-drink#:~:text=The%20danger%20of%20more%20acidic,obviously%20poses%20a%20health%20risk."><i class="fas fa-sliders-h"></i>Ask the Doctors - Is water with a high pH safe to drink?</a></li>
+     <li><a href="https://www.eldoradosprings.com/blog/what-causes-water-impurity"><i class="fas fa-sliders-h"></i>What causes water impurity? by Eldorado Marketing</a></li>
+     <li><a href="https://www.worldwildlife.org/stories/fight-climate-change-by-preventing-food-waste"><i class="fas fa-sliders-h"></i>Fight climate change by preventing food waste by WWF</a></li>
+     <li><a href="https://bio.libretexts.org/Learning_Objects/Laboratory_Experiments/Microbiology_Labs/Book%3A_General_Microbiology_Lab_Manual_(Pakpour_and_Horgan)/Lab_08%3A_Membrane_Filtration"><i class="fas fa-sliders-h"></i>Lab 8: Membrane filtration. Biology LibreTexts.</a></li>
+     <li><a href="https://generalcarbon.com/facts-about-activated-carbon/activated-carbon-faq/#:~:text=Activated%20carbon%20is%20made%20by,from%20600%2D1200%20degrees%20Celsius"><i class="fas fa-sliders-h"></i>General Carbon Corporation</a></li>
+     <li><a href="https://news.abs-cbn.com/life/03/20/23/rice-vegetables-meat-are-most-wasted-food-in-ph-dost#:~:text=MANILA%20%E2%80%94%20Rice%2C%20vegetables%2C%20and,said%20in%20a%20recent%20study."><i class="fas fa-sliders-h"></i>Rice, vegetables, meat are most wasted food in PH: DOST. ABS-CBN News.</a></li>
+     <li><a href="https://www.phxwater.co.uk/private-water-supply-ph-testing/#:~:text=Fill%20a%20clean%20container%20with,tests%20strips%20are%20widely%20available"><i class="fas fa-sliders-h"></i>How to Test your Private Water Supply's pH Balance. PHX WATER. </a></li>
+     <li><a href="https://www.nhsinform.scot/illnesses-and-conditions/infections-and-poisoning/escherichia-coli-e-coli-o157/#:~:text=A%20small%20number%20of%20people,children%20aged%20under%205%20years."><i class="fas fa-sliders-h"></i>Escherichia coli (E. coli) O157 | NHS inform</a></li>
+     <li><a href="https://homesteadsurvivalsite.com/make-activated-charcoal/ "><i class="fas fa-sliders-h"></i>How to make activated charcoal (With pictures). Homestead Survival Site.</a></li>
+     <li><a href="https://atlas-scientific.com/blog/why-is-turbidity-important/"><i class="fas fa-sliders-h"></i>Why is turbidity important? A | Atlas Scientific</a></li>
+     <li><a href="https://atlas-scientific.com/blog/why-is-turbidity-important/ "><i class="fas fa-sliders-h"></i>Why is turbidity important? B | Atlas Scientific</a></li>
+     <li><a href="https://www.watereducation.org/aquapedia-background/potable-water#:~"><i class="fas fa-sliders-h"></i>:~:text=Potable%20water%2C%20also%20known%20as,chemicals%2C%20viruses%20and%20fecal%20matter"><i class="fas fa-sliders-h"></i>Potable Water - Water Education Foundation</a></li>
+     <li><a href="https://doi.org/10.5772/intechopen.108349"><i class="fas fa-sliders-h"></i>Role of activated carbon in water treatment. In IntechOpen eBooks.</a></li>
+     <li><a href="https://doi.org/10.1016/b978-0-323-90763-7.00012-3"><i class="fas fa-sliders-h"></i>Applications and limitations of graphene oxide for remediating contaminants of emerging concern in wastewater by Separation Science and Technology</a></li>
+     <li><a href="https://doi.org/10.1016/b978-0-08-093250-7.00048-7 "><i class="fas fa-sliders-h"></i>Electromembrane Processes: basic aspects and applications</a></li>
+     <li><a href="https://www.who.int/news-room/fact-sheets/detail/drinking-water#:~:text=Contaminated%20water%20and%20poor%20sanitation,individuals%20to%20preventable%20health%20risks"><i class="fas fa-sliders-h"></i>Drinking Water by WHO</a></li>
+    </ul>
+ </nav>
+ </div>
+<a name="top"></a>
+ <div class="Profile-header">
+  <div class="header-container"> <!-- Add this div -->
+    <h1 class="header">SIP.</h1>
+  </div>
+</div>
+<div class = "textcontainer3">
+<div class="textandimgcolumn">
+  <div class="parallaxcontainer">
+    <img src="Images/Farm.jpg" class="img3">
+  </div>
+  <p class = "summary"> Food security is crucial to our partner institution’s sustainability and prosperity. Considering 
+    the institution is an independent institution, they can only rely on themselves to provide
+    their basic needs; the fluctuating nature of donations is not a reliable enough source 
+    of food/resources on its own.</p>
+</div>
+</div>
+        
+  </div>
+<div id = "subpage1">
+  <section id="cd-timeline" class="cd-container">
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Business</h2>
+				<p>The institution is using their community business endeavors to sustain their cash 
+          flow and their food security. In the interview, Miss Marisol, the president of the SAKADAB 
+          institution had mentioned that each member equally contributes and works in different departments 
+          depending on their skill sets such as crocheting, sewing, and maintaining a store of their own. 
+          This shows how the institution’s creativity and resourcefulness amidst the problems they face 
+          particularly about food scarcity but with factors such as the economic blow the pandemic had on 
+          any smaller businesses and the institution’s lack of awareness, the institution is in need of some 
+          assistance.</p>
+				<span class="cd-date">I</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-movie.svg" alt="Movie">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Food Waste</h2>
+				<p>The institution’s method  to manage kitchen waste is currently not known however, based on the most 
+          commonly used methods here in the Philippines, we can assume that SAKADAB follows the majority in 
+          depending on the government’s garbage collection service. <br><br>
+          
+          According to the National Institute of Health, most communities depend on the government’s garbage 
+          collection to deal with their waste which majority of the time, ends up in our landfills to rot.</p>
+				<span class="cd-date">II</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Converting Kitchen Waste into Valuable Resources</h2>
+				<p>Rice, vegetables, and meat – the most wasted types of food here in the Philippines according to the 
+          Department of Science and Technology (DOST). But this wasted food is not only another meal not eaten
+          but also an opportunity that is wasted. So here are three easy methods to deal with each type of food type.</p>
+				<span class="cd-date">III</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+	</section>
+  <div class="chart">
+    <div class="chart-plan chart-plan-1">
+      <h2>Rice</h2>
+      <p> Unused rice can be creatively repurposed into a nutritious meal, 
+      highlighting its adaptability across diverse Filipino recipes. A prime example is its conversion into Adobo rice,
+      a process that not only transforms leftover rice but also offers a chance to effectively utilize any residual vegetable oil.</p>
+      <a href="https://booky.ph/blog/leftover-rice-recipe/">Source</a>
+    </div>
+    <div class="chart-plan chart-plan-2">
+      <h2>Vegetables</h2>
+      <p>Vegetable waste, particularly from items like potatoes, garlic, and lettuce, 
+      can be repurposed by replanting the scraps to yield a fresh crop. This not only reduces vegetable waste but also establishes a sustainable food source. 
+      Given the financial constraints of the SAKADAB institution, this approach can alleviate the burden of food costs in their budgeting.</p>
+
+    </div>      
+    <div class="chart-plan chart-plan-3">
+      <h2>Meat</h2>
+      <p>Meat waste finds purpose in supporting strays, a simple yet impactful solution. In the SAKADAB institution, caring for at least one dog, possibly more, 
+        involves considerable expenses. By redirecting meat waste to feed the dog, it alleviates costs, 
+        a practical approach despite the affordability of commercial dog food.</p>
+    </div>
+    </div>
+    <br>
+    <div class = "chartSummary">
+      <p>We can turn kitchen waste into a valuable resource by maximizing its usage so that it can become a sustainable source 
+        of food and save financial resources as well. The methods we had given prior to this help find a new use for 
+        leftover food and make it into new meals that can be reused and made into yet another meal for either the human
+        members of the SAKADAB institution or the animal ones as well. On the other hand, the other method allows them to 
+        create their own food and make a sustainable source of food that they can upscale indefinitely the more they 
+        consume their own food and are left with more leftovers. In summary, the kitchen waste that otherwise would’ve been 
+        thrown out or left to rot is now able to become a sustainable resource that they can use for their own personal 
+        consumption by making sure to find a use for every single piece of wasted or unused resources. </p>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class = "subtitle-container">
+  <div class = "subtitle5">
+    <h1>Kitchen Waste to Community Resource Research Design</h1>
+  </div>
+</div>
+<section id = "abstract">
+  <div class = "row1Container">
+    <div class="row1">
+      <div class="column1" id="column1">
+        <img src = "Images/set-up 6.png">
+      </div>
+      <div class="column1" id = "column2">
+        <h2>Abstract</h2>
+        <p>Vegetables are one of the most wasted foods in Filipino households, and as an institution made-up by multiple households, SAKADAB is no exception to this fact. With no waste management systems in place, their kitchen waste ends up in landfills to decompose and become methane, a greenhouse gas more potent than carbon dioxide. This research aims to find ways to convert vegetable leftovers into an activated carbon filter and to see how it would affect the potability of different types of water. We believe that the activated carbon can filter and make tap and rainwater potable.
+
+        To test this, 3 kilograms of vegetable waste is cooked in a stove at 400 fahrenheit for 3-5 hours and crushed into a fine powder. After being activated with a lemon juice and water solution, it is dried and used to filter the three water samples. A coliform bacteria test is done to check the bacteria content, turbidity meters and litmus papers are used to see the turbidity and pH levels of the water samples to determine their potability.
+        </p>
+      </div>
+      </div>
+    </div>
+</section>
+<section id="Eunice">
+  <h2 class = "meet whitetext"> Meet the Designer. </h2>
+  <div id="card">
+    <h1>Eunice Lacuna</h1>
+    <div class="image-crop">
+      <img id="avatar" src="Images/Eunice.jpg" alt="User Avatar"> </img>
+      
+    </div>
+    <p id="username">@eunicelacs</p>
+    
+    <div id="bio">
+        <p>This is Eunice, the writer of this webpage. One of her favorite hobbies is photography, her photos always turn out great. 
+        She's into KPOP and she looooves Ice cream. She is a very responsible and diligent girl. <br> She may look intimidating but once you get to know her, she's very nice. </p>
+    </div>
+    <div id="stats">
+      <div class="col">
+        <p class="stat">3</p>
+        <p class="label">Husbands</p>
+      </div>
+      <div class="col">
+        <p class="stat">50</p>
+        <p class="label">Chismis</p>
+      </div>
+    </div>
+    <div id="buttons">
+      <a href="https://www.instagram.com/eunicelacs/" target="_blank">
+        <button id = "impressionbtns">Follow</button>
+      </a>
+    <a href="#">
+      <button id="msg">Message</button>
+    </a>
+      </div>
+    </div>
+  </section>
+  <button class="scrollToTopBtn">
+    <img src="Images/arrowhead.png">
+</button>
+  <div class="footerU">
+    <div id = "svgfooter">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#322222" fill-opacity="1" d="M0,192L48,208C96,224,192,256,288,256C384,256,480,224,576,202.7C672,181,768,171,864,192C960,213,1056,267,1152,282.7C1248,299,1344,277,1392,266.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </div>
+    <footer class="footer3">
+      <div class="footercon1">
+        <div class="logo-containerfooter">
+          <img src="Images/SAKADAB Dark Mode.png">
+          <h1 class="footerlogo">SAKADAB</h1>
+        </div>
+        <p class="footertext">A tight-knit and inclusive PWD institution trying to achieve <br> independence and sustainability through interdependence <br>
+          with one another and grassroots entrepreneurship.</p>
+        <a href="mailto:sakadab@gmail.com">
+          <button class="sendbutton">Message</button>
+        </a>
+        <p class = "footertext footertext2">SAKADAB &copy; 2023</p>
+      </div>
+      <div class="footercon2">
+        <h2 class = "footerelements">MEMBERS</h2>
+        <p class = "footermembers">Gillian Carnicer</p>
+        <p class = "footermembers">Yuel Gatus</p>
+        <p class = "footermembers">Hailey Mantar</p>
+        <p class = "footermembers">Eunice Lacuna</p>
+        <p class = "footermembers">Jonie Samalca</p>
+  
+      </div>
+      <div class="footercon3">
+        <h2 class = "footerelements">FOLLOW</h2>
+        <div class="icons">
+          <a href="https://www.facebook.com/sakadab.samahan"><i class="fab fa-facebook facebook"></i></a>
+          <a href="https://www.instagram.com/xav.ur.bashers/"><i class="fab fa-instagram instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+
+<script src = "anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script> 
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Observer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Draggable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EaselPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/TextPlugin.min.js"></script>
+  
+  
+  
+  <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/CustomEase.min.js"></script>
+  <script src = "script.js"></script>
+<script>
+const lenis = new Lenis()
+
+lenis.on('scroll', ScrollTrigger.update)
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
+
+gsap.ticker.lagSmoothing(0)
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: "div.Profile-header h1",
+    start: "top top",
+    end: "bottom top",
+    scrub: true,
+  },
+})
+.fromTo("div.Profile-header h1", {
+  scale: 1,
+  opacity: 1,
+  x: "0%", // Add this line
+}, {
+  scale: 2,
+  opacity: 0,
+  x: "-50%", // Add this line
+  duration: 2,
+  ease: "power1.out",
+});
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: "#section-1",
+      start: "top center",
+      end: "bottom top",
+      scrub: true,
+    },
+  })
+  .fromTo("#section-1", {
+    y: "100vh",
+  }, {
+    y: "0%",
+    duration: 2,
+    ease: "power1.out",
+  });
+  window.addEventListener('scroll', () => {
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const timelineLine = document.querySelector('.timeline::before');
+  
+  timelineItems.forEach((item, index) => {
+    const itemTop = item.getBoundingClientRect().top;
+    
+    if (itemTop <= window.innerHeight) {
+      timelineLine.style.setProperty('--scroll-progress', index / timelineItems.length);
+    }
+  });
+});
+jQuery(document).ready(function($){
+  var $timeline_block = $('.cd-timeline-block');
+
+  //hide timeline blocks which are outside the viewport
+  $timeline_block.each(function(){
+    if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+      $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+    }
+  });
+
+  //on scolling, show/animate timeline blocks when enter the viewport
+  $(window).on('scroll', function(){
+    $timeline_block.each(function(){
+      if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+        $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+      }
+    });
+  });
+});
+$(".chart-plan").hover(
+  function() {
+    // On hover, add 'hover' class to this element and remove it from all others
+    $(".chart-plan").removeClass("hover").css("animation", "none");
+    $(this).addClass("hover").css("animation", "");
+  },
+  function() {
+    // On hover out, remove 'hover' class from this element and stop the animation
+    $(this).removeClass("hover").css("animation", "none");
+  }
+);
+gsap.timeline({
+  scrollTrigger: {
+    trigger: ".chartSummary",
+    start: "bottom bottom",
+    end: "bottom top",
+    scrub: true,
+  },
+})
+.fromTo("#subpage1", { autoAlpha: 1, y: 0 }, { autoAlpha: 0, y: -50, duration: 1 })
+.fromTo(".subtitle5", { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 1 });
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".subtitle5",
+    start: "center center",
+    end: "+=500",
+    scrub: 1.2, // change this line
+    pin: true,
+    onEnterBack: function() {
+      gsap.to(".subtitle5", {scale: 30, duration: 1, autoAlpha: 0}); // fade out the .subtitle5
+    },
+  },
+  onUpdate: function () {
+    if (tl.progress() >= 1) {
+      gsap.to("#overlay", {
+        width: "100vw",
+        height: "100vh",
+        ease: "none"
+      });
+    }
+  }
+});
+
+// animate the scale from 1 to 30, creating a zoom effect, then fade out
+tl.to(".subtitle5", {scale: 30, autoAlpha: 0, duration: 1})
+  .to(".subtitle5", {scale: 1, duration: 1}); // reset the scale of the .subtitle5
+
+// create a separate timeline for the #abstract section
+let tl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#abstract",
+    start: "center center",
+    end: "+=500",
+    scrub: true,
+    pin: true,
+  }
+});
+
+// zoom out the #abstract from the middle
+tl2.fromTo("#abstract", {scale: 0.5, autoAlpha: 0}, {scale: 1, autoAlpha: 1, duration: 1});
+var scrollToTopBtn = document.querySelector(".scrollToTopBtn")
+                            var rootElement = document.documentElement
+                            function handleScroll() {
+                                // Calculate the scroll percentage (scrollAmount / totalHeight)
+                                var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+                                var scrollPercentage = rootElement.scrollTop / scrollTotal;
+                                console.log('Scroll percentage:', scrollPercentage);
+
+                                if (scrollPercentage > 0.25) {
+                                    // If scroll percentage is above threshold (0.25), show the button
+                                    scrollToTopBtn.classList.add("showBtn");
+                                    console.log('showBtn class added');
+                                } else {
+                                    // If scroll percentage is less than threshold (0.25), hide the button
+                                    scrollToTopBtn.classList.remove("showBtn");
+                                    console.log('showBtn class removed');
+                                }
+                            }
+
+                            function scrollToTop() {
+                                // Scroll to top smooth behavior
+                                rootElement.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth"
+                                });
+                            }
+
+                            // Attach scroll event to the button
+                            scrollToTopBtn.addEventListener("click", scrollToTop);
+
+                            // Listen for scroll events in the document
+                            document.addEventListener("scroll", handleScroll);
+                            let column1 = document.getElementById('column1');
+let column2 = document.getElementById('column2');
+
+function addSpotlightEffect(element) {
+  // Set the initial background color for the element
+  element.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+
+  element.addEventListener('mousemove', function(e) {
+    let rect = this.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
+    if (x >= 0 && y >= 0 && x <= rect.width && y <= rect.height) {
+      // The cursor is within the bounds of the element
+      this.style.backgroundImage = `radial-gradient(circle closest-side at ${x}px ${y}px, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5))`;
+      this.style.backgroundColor = 'transparent';
+    } else {
+      // The cursor is outside the bounds of the element
+      this.style.backgroundImage = 'none';
+      this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+    }
+  });
+
+  element.addEventListener('mouseleave', function() {
+    this.style.backgroundImage = 'none';
+    this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+  });
+}
+
+// Add the spotlight effect to both elements
+addSpotlightEffect(column1);
+addSpotlightEffect(column2);
+// Fade in "Meet the Designer" on scroll
+gsap.from(".meet", {
+  scrollTrigger: {
+    trigger: ".meet",
+    start: "top 80%", // start the animation when the top of .meet is 80% from the top of the viewport
+    end: "bottom 20%", // end the animation when the bottom of .meet is 20% from the bottom of the viewport
+    scrub: true, // smooth the animation based on the scroll position
+  },
+  autoAlpha: 0, // start from transparent
+});
+
+// Pop out animation on the card
+gsap.from("#card", {
+  scrollTrigger: {
+    trigger: "#card",
+    start: "top 80%", // start the animation when the top of #card is 80% from the top of the viewport
+    end: "bottom 20%", // end the animation when the bottom of #card is 20% from the bottom of the viewport
+    scrub: true, // smooth the animation based on the scroll position
+  },
+  scale: 0.5, // start from 80% of the original size
+});
+
+
+
+
+
+</script>
+</body>
+		 
+
+			
+
+</html>
+

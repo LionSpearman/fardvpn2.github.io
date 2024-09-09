@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gallery.</title>
+        <link rel="stylesheet" href="style.css">
+	    <link href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+    <style>
+
+        .largequote5 {
+  font-size: 120px;
+  color: white;
+  font-weight: 700;
+  padding-left: 15%;
+  position: absolute;
+  top: 65%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+.wavecontainer2 {
+    margin-top: -20%;
+}
+.placeholder {
+    color: black;
+    border-bottom: 5px solid #d46464;
+    text-align: center;
+    justify-content: center;
+    width: 75%;
+    padding-bottom: 10px;
+    margin: 0 auto;
+}
+.sliderimg2 {
+    width: 840px;
+  height: 500px;
+  object-fit: cover; /* or "contain" depending on your preference */
+}
+section.secondsection {
+  background-color: rgb(221, 221, 221);
+
+}
+#svgfooter {
+  margin-top: -250px;
+}
+.footerU {
+      margin-top: 250px;
+    }
+.largequote3 {
+  padding-top: 10%;
+  font-weight: 300;
+  font-size: 200px;
+  text-align: center;
+  line-height: 1.2;
+  background: linear-gradient(to right, rgb(255, 119, 119), rgb(106, 141, 236)); /* replace with your gradient colors */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gallerysection {
+    padding-top: 5%;
+}
+    </style>
+    </head>
+
+
+<body>
+    <nav class="navbar">
+        <div class="logo2">
+            <a href="index.html">
+                <img src="Images/Sakadab Light Mode.png" alt="Light Mode Logo" id="lightModeLogo"/>
+            </a>
+        </div>
+        <ul class="nav__links">
+            <li><a href="profile2.html">Profile</a></li>
+            <li><a href="Filipino.html">Kwento</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="SIP2.html">SIP</a></li>
+        </ul>
+    </nav>
+    <div id="page-progress"></div>
+	<div class="wrappersidebar">
+        <input type="checkbox" id="btn" hidden>
+        <label for="btn" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+        </label>
+        <nav id="sidebar">
+           <div class="title">
+              Bibliography
+           </div>
+           <ul class="list-items">
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="https://docs.google.com/document/d/1DrbW_au2MP6xZJno9PG6yvpa8tI-759iRz51tSKsKlw/edit?usp=drivesdk"><i class="fas fa-sliders-h"></i>SAKADAB DATA</a></li>
+            <li><a href="https://knowledge4policy.ec.europa.eu/dataset/beofao-fao-burningcropresidues_en"><i class="fas fa-sliders-h"></i>Effect of Burning Crops</a></li>
+            <li><a href="https://www.uclahealth.org/news/ask-the-doctors-is-water-with-a-high-ph-safe-to-drink#:~:text=The%20danger%20of%20more%20acidic,obviously%20poses%20a%20health%20risk."><i class="fas fa-sliders-h"></i>Ask the Doctors - Is water with a high pH safe to drink?</a></li>
+            <li><a href="https://www.eldoradosprings.com/blog/what-causes-water-impurity"><i class="fas fa-sliders-h"></i>What causes water impurity? by Eldorado Marketing</a></li>
+            <li><a href="https://www.worldwildlife.org/stories/fight-climate-change-by-preventing-food-waste"><i class="fas fa-sliders-h"></i>Fight climate change by preventing food waste by WWF</a></li>
+            <li><a href="https://bio.libretexts.org/Learning_Objects/Laboratory_Experiments/Microbiology_Labs/Book%3A_General_Microbiology_Lab_Manual_(Pakpour_and_Horgan)/Lab_08%3A_Membrane_Filtration"><i class="fas fa-sliders-h"></i>Lab 8: Membrane filtration. Biology LibreTexts.</a></li>
+            <li><a href="https://generalcarbon.com/facts-about-activated-carbon/activated-carbon-faq/#:~:text=Activated%20carbon%20is%20made%20by,from%20600%2D1200%20degrees%20Celsius"><i class="fas fa-sliders-h"></i>General Carbon Corporation</a></li>
+            <li><a href="https://news.abs-cbn.com/life/03/20/23/rice-vegetables-meat-are-most-wasted-food-in-ph-dost#:~:text=MANILA%20%E2%80%94%20Rice%2C%20vegetables%2C%20and,said%20in%20a%20recent%20study."><i class="fas fa-sliders-h"></i>Rice, vegetables, meat are most wasted food in PH: DOST. ABS-CBN News.</a></li>
+            <li><a href="https://www.phxwater.co.uk/private-water-supply-ph-testing/#:~:text=Fill%20a%20clean%20container%20with,tests%20strips%20are%20widely%20available"><i class="fas fa-sliders-h"></i>How to Test your Private Water Supply's pH Balance. PHX WATER. </a></li>
+            <li><a href="https://www.nhsinform.scot/illnesses-and-conditions/infections-and-poisoning/escherichia-coli-e-coli-o157/#:~:text=A%20small%20number%20of%20people,children%20aged%20under%205%20years."><i class="fas fa-sliders-h"></i>Escherichia coli (E. coli) O157 | NHS inform</a></li>
+            <li><a href="https://homesteadsurvivalsite.com/make-activated-charcoal/ "><i class="fas fa-sliders-h"></i>How to make activated charcoal (With pictures). Homestead Survival Site.</a></li>
+            <li><a href="https://atlas-scientific.com/blog/why-is-turbidity-important/"><i class="fas fa-sliders-h"></i>Why is turbidity important? A | Atlas Scientific</a></li>
+            <li><a href="https://atlas-scientific.com/blog/why-is-turbidity-important/ "><i class="fas fa-sliders-h"></i>Why is turbidity important? B | Atlas Scientific</a></li>
+            <li><a href="https://www.watereducation.org/aquapedia-background/potable-water#:~"><i class="fas fa-sliders-h"></i>:~:text=Potable%20water%2C%20also%20known%20as,chemicals%2C%20viruses%20and%20fecal%20matter"><i class="fas fa-sliders-h"></i>Potable Water - Water Education Foundation</a></li>
+            <li><a href="https://doi.org/10.5772/intechopen.108349"><i class="fas fa-sliders-h"></i>Role of activated carbon in water treatment. In IntechOpen eBooks.</a></li>
+            <li><a href="https://doi.org/10.1016/b978-0-323-90763-7.00012-3"><i class="fas fa-sliders-h"></i>Applications and limitations of graphene oxide for remediating contaminants of emerging concern in wastewater by Separation Science and Technology</a></li>
+            <li><a href="https://doi.org/10.1016/b978-0-08-093250-7.00048-7 "><i class="fas fa-sliders-h"></i>Electromembrane Processes: basic aspects and applications</a></li>
+            <li><a href="https://www.who.int/news-room/fact-sheets/detail/drinking-water#:~:text=Contaminated%20water%20and%20poor%20sanitation,individuals%20to%20preventable%20health%20risks"><i class="fas fa-sliders-h"></i>Drinking Water by WHO</a></li>
+           </ul>
+        </nav>
+     </div>
+     <div class = "profile-header">
+        <h1 align = "center" class = "largequote3">Gallery.</h1>
+      </div>
+<section class="gallerysection">
+     <div class="Gallerycontainer">
+        <div class="slider">
+          <div class="slider-content">
+            <figure class="show">
+              <img src="Images/Officers.jpg" alt="Officers" class="sliderimg">
+            </figure>
+            <figure>
+              <img src="Images/Des 2.jpg" alt="Description 1">
+            </figure>
+            <figure>
+              <img src="images/DSC03941.jpg" class="sliderimg">
+            </figure>
+            <figure>
+                <img src="images/Des 3.jpg">
+              </figure>
+              <figure>
+                <img src="images/DSC04001.jpg" class="sliderimg">
+              </figure>
+              <figure>
+                <img src="images/Des 4.jpg">
+              </figure>
+              <figure>
+                <img src="images/Business.png" class="sliderimg2 ">
+              </figure>
+              <figure>
+                <img src="images/Des 1.jpg">
+              </figure>
+          </div>
+          <div class="slider-navigation">
+            <button>
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+                        <script src = "script.js"></script>
+                        <script>
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Zoom out the .profile-header when the user scrolls to the .gallerysection
+gsap.to(".profile-header", {
+  scale: 0.5,
+  yPercent: -50,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".profile-header",
+    start: "top top",
+    end: "bottom top",
+    scrub: true,
+    pin: true
+  }
+});
+
+// Move the .gallerysection upwards over the .profile-header
+gsap.from(".gallerysection", {
+  yPercent: 100,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".gallerysection",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true
+  }
+});
+                            var count = 0;
+                            var directions = {
+                            prev: 0,
+                            next: 1
+                            }
+
+                            var prevButton = document.querySelector(".slider-navigation button:first-child");
+                            var nextButton = document.querySelector(".slider-navigation button:last-child");
+                            var sliders = document.querySelectorAll(".slider-content figure");
+
+                            initListeners();
+                            function getElementIndex(element) {
+                            return Array.from(element.parentNode.children).indexOf(element);
+                            }
+
+                            function initListeners() {
+                            nextButton.addEventListener("click", onNavigationClick);
+                            prevButton.addEventListener("click", onNavigationClick);
+                            }
+
+                            function onNavigationClick(e) {
+                            var currentButton = e.target;
+                            var index = getElementIndex(e.target);
+                            var controlledCount = countController(index);
+                            
+                            var oldSlideItem = sliders[controlledCount.old];
+                            var newSlideItem = sliders[controlledCount.new];
+                            
+                            oldSlideItem.classList.remove("show");
+                            currentButton.classList.add("disabled");
+                            
+                            var showNextSliderItemInterval = setInterval(function() {
+                                newSlideItem.classList.add("show");
+                                currentButton.classList.remove("disabled");
+                                clearInterval(showNextSliderItemInterval);
+                            }, 150);
+                            }
+
+                            function countController(directionIndex) {
+                            var result = { new: 0, old: count };
+                            var max = sliders.length;
+                            
+                            if(directionIndex === directions.next) {
+                                count = count === max - 1 ? 0 : (count + 1);
+                            }
+                            
+                            if(directionIndex === directions.prev) {
+                                count = count === 0 ? (max - 1) : (count - 1);
+                            }
+                            
+                            result.new = count;
+                            
+                            return result;
+                            }
+
+                            var scrollToTopBtn = document.querySelector(".scrollToTopBtn")
+                            var rootElement = document.documentElement
+                            
+                            function handleScroll() {
+                            // Do something on scroll - 0.15 is the percentage the page has to scroll before the button appears
+                            // This can be changed - experiment
+                            var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
+                            if ((rootElement.scrollTop / scrollTotal ) > 0.25) {
+                                // Show button
+                                scrollToTopBtn.classList.add("showBtn")
+                            } else {
+                                // Hide button
+                                scrollToTopBtn.classList.remove("showBtn")
+                            }
+                            }
+                            
+                            function scrollToTop() {
+                            // Scroll to top logic
+                            rootElement.scrollTo({
+                                top: 0,
+                                behavior: "smooth"
+                            })
+                            }
+                            scrollToTopBtn.addEventListener("click", scrollToTop)
+                            document.addEventListener("scroll", handleScroll)
+                                </script>
+                    </body>
+                </html>
+
+                   
+
+

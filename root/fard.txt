@@ -1,0 +1,18 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="b" r="100%" cx="50%" cy="50%"><stop offset="0%" stop-color="#FF0037"/><stop offset="20%" stop-color="#fa3c3c"/><stop offset="40%" stop-color="#ff90a8"/><stop offset="60%" stop-color="#ffc0cd"/><stop offset="80%" stop-color="#ffe6e6"/><stop offset="100%" stop-color="#fff"/></radialGradient><clipPath id="a"><path fill="currentColor" d="M879.5 659Q818 818 659 849.5T339.5 851q-160.5-30-181-190.5t37-284Q253 253 376.5 148t298-51Q849 151 895 325.5T879.5 659Z"/></clipPath></defs><g clip-path="url(#a)"><path fill="url(#b)" d="M879.5 659Q818 818 659 849.5T339.5 851q-160.5-30-181-190.5t37-284Q253 253 376.5 148t298-51Q849 151 895 325.5T879.5 659Z"/
+
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#FF4040" d="M52.2,-40C65.1,-25.3,71.5,-3.8,67.3,15.7C63.1,35.2,48.4,52.6,29.6,61.6C10.9,70.7,-11.9,71.4,-33.3,63.4C-54.7,55.3,-74.7,38.5,-81.2,16.6C-87.8,-5.2,-80.8,-32.1,-65,-47.4C-49.3,-62.7,-24.6,-66.5,-2.5,-64.5C19.6,-62.5,39.2,-54.7,52.2,-40Z" transform="translate(100 100)" />
+</svg>
+
+
+    <div class="icons">
+        <a href="https://www.facebook.com/sakadab.samahan"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/xav.ur.bashers/"><i class="fab fa-instagram"></i></a>
+        <p class="company-name">
+            SAKADAB &copy; 2023, Group 3A | Gatus, Carnicer, Samalca, Mantar, Lacuna
+        </p>
+    </div>
+
+                <div class="icons">
+                <a href="https://www.facebook.com/sakadab.samahan"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/xav.ur.bashers/"><i class="fab fa-instagram"></i></a>
